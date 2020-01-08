@@ -17,6 +17,7 @@ chai.use(chaiHttp);
 describe('SeeInStores', () => {
 
 	describe("<< Response Headers >>", () => {
+		
 		it('===> content-type shoud return application/json; charset=utf-8', (done) => {
 			request.get({url:baseURL + '?sku=7005451p&zipcode=33610'},
 				(error, response, body) => {
@@ -27,9 +28,9 @@ describe('SeeInStores', () => {
 					done();
 				});
 		});
-
 	});
 
+	
 	describe("<< Status_Codes & Messages >>", () => {
 
 		it('===> StatusCode shoud return 200 for correct sku & correct zipcode', (done) => {
@@ -44,8 +45,6 @@ describe('SeeInStores', () => {
 				});
 		});
 
-
-
 		it('===> Bad Request: StatusCode should return 400 for wrong sku', (done) => {
 			request.get({url:baseURL + '?sku=700545asdasd1p&zipcode=33610'},
 				(error, response, body) => {
@@ -57,7 +56,6 @@ describe('SeeInStores', () => {
 				});
 		});
 
-
 		it('===> Bad Request: StatusCode should return 400 for wrong zipcode', (done) => {
 			request.get({url:baseURL + '?sku=7005451p&zipcode=6547895'},
 				(error, response, body) => {
@@ -68,8 +66,6 @@ describe('SeeInStores', () => {
 					done();
 				});
 		});
-
-
 
 		it('===> Bad Request: StatusCode should return 400 for wrong sku and wrong zipcode', (done) => {
 			request.get({url:baseURL + '?sku=7005aswdasdas451p&zipcode=6547895'},
@@ -95,7 +91,6 @@ describe('SeeInStores', () => {
 				});
 		});
 
-
 		it('===> Bad Request: body.message should return -Wrong parameter zipcode- in query for wrong zipcode', (done) => {
 			request.get({url:baseURL + '?sku=7005451p&zipcode=336asdasdasd10'},
 				(error, response, body) => {
@@ -108,13 +103,7 @@ describe('SeeInStores', () => {
 					done();
 				});
 		});
-
-
-
-
 	});
-
-
 
 
 	describe("<< Return_Data_Types >>", () => {
@@ -138,7 +127,6 @@ describe('SeeInStores', () => {
 				// console.log(obj);
 		});
 
-
 		it('===> Address1 data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -150,7 +138,6 @@ describe('SeeInStores', () => {
 
 		});
 
-
 		it('===> City data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -161,7 +148,6 @@ describe('SeeInStores', () => {
 			
 		});
 
-
 		it('===> Hours/regularHours/dayIndex data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -171,7 +157,6 @@ describe('SeeInStores', () => {
 			done();
 			
 		});
-
 
 		it('===> Hours/regularHours/closeTime data type should be string', (done) => {
 			for(var o of obj){
@@ -193,7 +178,6 @@ describe('SeeInStores', () => {
 			
 		});
 
-
 		it('===> Hours/specialHours/isOpen data type should be boolean', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -202,8 +186,6 @@ describe('SeeInStores', () => {
 			}
 			done();
 		});
-
-
 
 		it('===> Hours/specialHours/closeTime data type should be string', (done) => {
 			for(var o of obj){
@@ -214,8 +196,6 @@ describe('SeeInStores', () => {
 			done();
 		});
 
-
-
 		it('===> Hours/specialHours/openTime data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -224,8 +204,6 @@ describe('SeeInStores', () => {
 			}
 			done();
 		});
-
-
 
 		it('===> Latitude data type should be number', (done) => {
 			for(var o of obj){
@@ -247,7 +225,6 @@ describe('SeeInStores', () => {
 			
 		});
 
-
 		it('===> PhoneNumber data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -267,7 +244,6 @@ describe('SeeInStores', () => {
 			done();
 		});
 
-
 		it('===> Store Name data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -278,7 +254,6 @@ describe('SeeInStores', () => {
 			done();
 		});
 
-
 		it('===> Store Number data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -288,7 +263,6 @@ describe('SeeInStores', () => {
 			done();
 		});
 
-		
 		it('===> Zipcode data type should be string', (done) => {
 			for(var o of obj){
 				// console.log(o);
@@ -308,7 +282,6 @@ describe('SeeInStores', () => {
 		var body=null;
 		var obj=null;
 
-
 		request.get({url:baseURL + '?sku=7005451p&zipcode=33610'},
 			(err, res, bod) => {
 				error=err;
@@ -320,9 +293,6 @@ describe('SeeInStores', () => {
 				obj=JSON.parse(body);
 				// console.log(obj);
 		});
-
-
-		//console.log(obj);
 
 		it('===> Hours/specialHours/isOpen should return false as it is not between open and close time on the given day', (done) => {
 
