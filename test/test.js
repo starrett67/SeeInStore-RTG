@@ -23,6 +23,7 @@ describe('SeeInStores', () => {
 					// console.log("===========================================================");
 					// console.log(response.headers);
 					// console.log("===========================================================");
+					assert(false)
 					assert.equal(response.headers['content-type'], 'application/json; charset=utf-8');
 					done();
 				});
