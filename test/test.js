@@ -322,7 +322,7 @@ describe('SeeInStores', () => {
 		});
 
 
-		console.log(obj);
+		//console.log(obj);
 
 		it('===> Hours/specialHours/isOpen should return false as it is not between open and close time on the given day', (done) => {
 
