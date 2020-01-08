@@ -10,7 +10,6 @@ var util = require("util");
 
 var chai = require('chai')
   , chaiHttp = require('chai-http');
-
 chai.use(chaiHttp);
 
 
@@ -108,12 +107,10 @@ describe('SeeInStores', () => {
 
 	describe("<< Return_Data_Types >>", () => {
 
-
 		var error=null;
 		var response=null;
 		var body=null;
 		var obj=null;
-
 
 		request.get({url:baseURL + '?sku=7005451p&zipcode=33980'},
 			(err, res, bod) => {
